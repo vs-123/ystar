@@ -18,8 +18,11 @@ def amalgamate(filename):
                 output.append(line)
     return "".join(output)
 
+if not os.path.exists("dist"):
+    os.makedirs("dist")
+    
 amalgamated = amalgamate("amalgamate_template.h")
-with open("ystar.h", "w") as f:
+with open("dist/ystar.h", "w") as f:
     f.write(amalgamated)
 
 print("[DONE] 'ystar.h' DISTRIBUTABLE HEADER GENERATED")
