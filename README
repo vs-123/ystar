@@ -1,0 +1,15 @@
+~=~=~=~=~=~=
+|| Y-STAR ||
+~=~=~=~=~=~=
+
+   A custom xorshift64* implementation in C, with my own constants.
+
+   This project reuses my xorshift* repo @ https://github.com/vs-123/xorshift-star
+
+~=~=~=~=~=~=~
+|| LICENSE ||
+~=~=~=~=~=~=~
+
+   This project is licensed under AGPLv3 or later.
+      **NO WARRANTY PROVIDED**
+   See LICENSE file for full terms or visit https://www.gnu.org/licenses/agpl-3.0.html
