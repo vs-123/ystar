@@ -22,7 +22,7 @@ main (void)
          u32 num = ystar_between (&seed, min, max);
          freq[num - 1]++;
 
-         if (i + 1 < 2000)
+         if (i < 2000)
             {
                sequence[i] = num;
             }
@@ -34,15 +34,17 @@ main (void)
          printf ("%u  ", sequence[i]);
       }
 
-   printf ("\n");
+   printf ("\ntally_data = {");
 
    for (u32 i = 0; i < max; i++)
       {
          u32 num       = i + 1;
          u64 frequency = freq[i];
 
-         printf ("%u \t %llu times\n", num, frequency);
+         printf ("    %u: %llu,\n", num, frequency);
       }
+
+   printf("}");
 
    return 0;
 }
