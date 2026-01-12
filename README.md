@@ -1,57 +1,57 @@
 # Y-STAR
 
-   A custom xorshift64* implementation in C, with my own constants.
+A custom xorshift64* implementation in C, with my own constants.
 
-   This project reuses my xorshift* repo @ https://github.com/vs-123/xorshift-star
+This project reuses my xorshift* repo @ https://github.com/vs-123/xorshift-star
 
 ## INSTALLATION
 
-   Clone the repository:
+Clone the repository:
 ```
-      % git clone https://github.com/vs-123/ystar
+% git clone https://github.com/vs-123/ystar
 ```
 
-   Generate the amalgamated single-header file using the Python script: (optional)
+Generate the amalgamated single-header file using the Python script: (optional)
 ```
-      % python3 ./amalgamate.py
-      [DONE] 'ystar.h' DISTRIBUTABLE HEADER GENERATED
+% python3 ./amalgamate.py
+[DONE] 'ystar.h' DISTRIBUTABLE HEADER GENERATED
 ```   
 
-   The single-header file will be generated in dist/, include dist/
-   in your project to start using it.
+The single-header file will be generated in dist/, include dist/
+in your project to start using it.
 
-   **[NOTE]**
-   While I aim to keep dist/mylib.h updated with every commit,
-   there's always a chance that it may lag behind the latest changes in `src/` or `include/`.
-   In order to ensure you have the absolute latest version,
-   it is recommended to run the `amalgamate.py` Python script manually.
+**[NOTE]**
+While I aim to keep dist/mylib.h updated with every commit,
+there's always a chance that it may lag behind the latest changes in `src/` or `include/`.
+In order to ensure you have the absolute latest version,
+it is recommended to run the `amalgamate.py` Python script manually.
 
 ## USAGE
 
-   Once you've completed the installation, you may use the library as follows:
-   
-      -   In any one file (for e.g. `main.c`), define `YSTAR_IMPLEMENTATION`
-      	  before including the header:
-```
-             #define YSTAR_IMPLEMENTATION
-             #include "ystar.h"
+Once you've completed the installation, you may use the library as follows:
 
-             /* now you can use ystar! */
+-   In any one file (for e.g. `main.c`), define `YSTAR_IMPLEMENTATION`
+	  before including the header:
+```
+       #define YSTAR_IMPLEMENTATION
+       #include "ystar.h"
 
-             uint64_t seed = 5;
-             uint32_t num = ystar_between (&seed, 1, 10);
-```
-      -   In any other file where you want to use the library functions,
-          just include the header normally without the define:
-```
-             #include "ystar.h"
+       /* now you can use ystar! */
 
-             void some_other_function() {
-                uint64_t seed = 10;
-                uint32_t num = ystar_between (&seed, 1, 25);
-             }
+       uint64_t seed = 5;
+       uint32_t num = ystar_between (&seed, 1, 10);
 ```
-      -   See `examples/` for more.
+-   In any other file where you want to use the library functions,
+    just include the header normally without the define:
+```
+       #include "ystar.h"
+
+       void some_other_function() {
+          uint64_t seed = 10;
+          uint32_t num = ystar_between (&seed, 1, 25);
+       }
+```
+-   See `examples/` for more.
 
 ## OBSERVATION
 
@@ -78,13 +78,13 @@ If our P-value were less than 0.05, it would've implied that our PRNG is biased 
 
 **WALD-WOLFOWITZ RUNS TEST (2K SEQUENCE):**
 
-   - **TOTAL RUNS**   --> **957**
+- **TOTAL RUNS**   --> **957**
 
-   - **EXPECTED**     --> **959.00**
+- **EXPECTED**     --> **959.00**
 
-   - **Z-SCORE**      --> **-0.0914**
+- **Z-SCORE**      --> **-0.0914**
 
-   - **P-VALUE**      --> **0.9272**
+- **P-VALUE**      --> **0.9272**
 
 This test checks for streaks, basically it tells how long the sequence stays above or below the median.
 
@@ -104,13 +104,13 @@ Our correlation of `0.0067` is very close to `0`, which tells that if I gave you
 
 **[NOTE]**
 
-   You may run the tests manually. Just run `make r` at project root,
-   take the sequence from `stdout` xand edit it in `analyse.py`'s `sequence_str` variable,
-   update `tally_data` and then execute `analyse.py` to get the test results in `stdout`
-   along with the plot @ `prng_analysis.png` in project root.
+You may run the tests manually. Just run `make r` at project root,
+take the sequence from `stdout` xand edit it in `analyse.py`'s `sequence_str` variable,
+update `tally_data` and then execute `analyse.py` to get the test results in `stdout`
+along with the plot @ `prng_analysis.png` in project root.
 
 ## LICENSE
 
-   This project is licensed under AGPLv3 or later.
-      **NO WARRANTY PROVIDED**
-   See LICENSE file for full terms or visit https://www.gnu.org/licenses/agpl-3.0.html
+This project is licensed under AGPLv3 or later.
+**NO WARRANTY PROVIDED**
+See LICENSE file for full terms or visit https://www.gnu.org/licenses/agpl-3.0.html
