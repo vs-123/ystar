@@ -32,24 +32,24 @@ Once you've completed the installation, you may use the library as follows:
 
 -   In any one file (for e.g. `main.c`), define `YSTAR_IMPLEMENTATION`
 	  before including the header:
-```
-       #define YSTAR_IMPLEMENTATION
-       #include "ystar.h"
+```c
+#define YSTAR_IMPLEMENTATION
+#include "ystar.h"
 
-       /* now you can use ystar! */
+/* now you can use ystar! */
 
-       uint64_t seed = 5;
-       uint32_t num = ystar_between (&seed, 1, 10);
+uint64_t seed = 5;
+uint32_t num = ystar_between (&seed, 1, 10);
 ```
 -   In any other file where you want to use the library functions,
     just include the header normally without the define:
-```
-       #include "ystar.h"
+```c
+#include "ystar.h"
 
-       void some_other_function() {
-          uint64_t seed = 10;
-          uint32_t num = ystar_between (&seed, 1, 25);
-       }
+void some_other_function() {
+   uint64_t seed = 10;
+   uint32_t num = ystar_between (&seed, 1, 25);
+}
 ```
 -   See `examples/` for more.
 
