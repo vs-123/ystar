@@ -36,15 +36,15 @@
       	  before including the header:
       
              #define YSTAR_IMPLEMENTATION
-	     #include "ystar.h"
+             #include "ystar.h"
 
-	     /* now you can use ystar! */
+             /* now you can use ystar! */
 
              uint64_t seed = 5;
              uint32_t num = ystar_between (&seed, 1, 10);
-	     
+        
       o   In any other file where you want to use the library functions,
-      	  just include the header normally without the define:
+          just include the header normally without the define:
 
              #include "ystar.h"
 
@@ -52,6 +52,8 @@
                 uint64_t seed = 10;
                 uint32_t num = ystar_between (&seed, 1, 25);
              }
+
+      o   See =examples/=
 
 ~=~=~=~=~=~=~
 || LICENSE ||
