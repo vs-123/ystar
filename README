@@ -32,7 +32,8 @@
 
    Once you've completed the installation, you may use the library as follows:
    
-      o   In any one file (for e.g. =main.c=), define =YSTAR_IMPLEMENTATION= before including the header:
+      o   In any one file (for e.g. =main.c=), define =YSTAR_IMPLEMENTATION=
+      	  before including the header:
       
              #define YSTAR_IMPLEMENTATION
 	     #include "ystar.h"
@@ -42,8 +43,8 @@
              uint64_t seed = 5;
              uint32_t num = ystar_between (&seed, 1, 10);
 	     
-      o   In any other file where you want to use the library functions, just include the header normally
-          without the define:
+      o   In any other file where you want to use the library functions,
+      	  just include the header normally without the define:
 
              #include "ystar.h"
 

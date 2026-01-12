@@ -21,8 +21,8 @@ ystar_between (u64 *seed, u32 min, u32 max)
 {
    u32 range        = max - min + 1;
    u64 random_32bit = (u32)ystar (seed);
-   u64 multiresult = random_32bit * range;
-   u32 leftover    = (u32)multiresult;
+   u64 multiresult  = random_32bit * range;
+   u32 leftover     = (u32)multiresult;
 
    if (leftover < range)
       {
