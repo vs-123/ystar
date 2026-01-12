@@ -6,6 +6,26 @@
 
    This project reuses my xorshift* repo @ https://github.com/vs-123/xorshift-star
 
+~=~=~=~=~=~=~=~=~=
+|| INSTALLATION ||
+~=~=~=~=~=~=~=~=~=
+
+   Clone the repository:
+      % git clone https://github.com/vs-123/ystar
+
+   Generate the amalgamated single-header file using the Python script: (optional)
+      % python3 ./amalgamate.py
+      [DONE] 'ystar.h' DISTRIBUTABLE HEADER GENERATED
+
+   The single-header file will be generated in dist/, include dist/
+   in your project to start using it.
+
+   [NOTE]
+      While I aim to keep dist/mylib.h updated with every commit,
+      there's always a chance that it may lag behind the latest changes in =src/= or =include/=.
+      In order to ensure you have the absolute latest version,
+      it is recommended to run the =amalgamate.py= Python script manually.
+
 ~=~=~=~=~=~=~
 || LICENSE ||
 ~=~=~=~=~=~=~
