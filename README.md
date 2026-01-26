@@ -6,31 +6,32 @@ This project reuses my xorshift* repo @ https://github.com/vs-123/xorshift-star
 
 ## INSTALLATION
 
-Clone the repository:
+This project depends on the following:
+- **CMake** -- Build System
+- **Python3** -- Required for Amalgamation Script
+
+Once you have the required dependencies, simply add the following into your `CMakeLists.txt`:
+
+```cmake
+include(FetchContent)
+FetchContent_Declare(
+  ystar
+  GIT_REPOSITORY https://github.com/vs-123/ystar.git
+  GIT_TAG        main
+)
+FetchContent_MakeAvailable(ystar)
 ```
-% git clone https://github.com/vs-123/ystar
+
+The single-header file will be available in your CMake project.
+
+You may then link it with your target with the name `ystar` as follows:
+```cmake
+target_link_libraries(... PRIVATE ystar)
 ```
 
-Generate the amalgamated single-header file using the Python script: (optional)
-```
-% python3 ./amalgamate.py
-[DONE] 'ystar.h' DISTRIBUTABLE HEADER GENERATED
-```   
+## USAGE IN CODE
 
-The single-header file will be generated in dist/, include dist/
-in your project to start using it.
-
-**[NOTE]**
-While I aim to keep dist/mylib.h updated with every commit,
-there's always a chance that it may lag behind the latest changes in `src/` or `include/`.
-In order to ensure you have the absolute latest version,
-it is recommended to run the `amalgamate.py` Python script manually.
-
-## USAGE
-
-Once you've completed the installation, you may use the library as follows:
-
--   In any one file (for e.g. `main.c`), define `YSTAR_IMPLEMENTATION`
+In any one file (for e.g. `main.c`), define `YSTAR_IMPLEMENTATION`
 	  before including the header:
 ```c
 #define YSTAR_IMPLEMENTATION
@@ -41,8 +42,8 @@ Once you've completed the installation, you may use the library as follows:
 uint64_t seed = 5;
 uint32_t num = ystar_between (&seed, 1, 10);
 ```
--   In any other file where you want to use the library functions,
-    just include the header normally without the define:
+
+In any other file where you wish to use the library functions, just include the header normally without the define:
 ```c
 #include "ystar.h"
 
@@ -51,7 +52,8 @@ void some_other_function() {
    uint32_t num = ystar_between (&seed, 1, 25);
 }
 ```
--   See `examples/` for more.
+
+See `examples/` for more.
 
 ## OBSERVATION
 
